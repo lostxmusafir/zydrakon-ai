@@ -1,0 +1,24 @@
+# Zydrakon AI
+
+> Engineer the Future of Intelligence
+
+Zydrakon AI is an artificial intelligence company founded by Raj Patil, specializing in AI engineering, backend development, and agentic AI solutions. We build intelligent systems, developer tools, and enterprise orchestration platforms.
+
+## Core Products
+
+- **Nexus AI Platform** (Beta): Enterprise-grade AI orchestration platform for building, deploying, and monitoring intelligent agents at scale. Offers multi-model orchestration, agentic workflow engines, vector store integration, and enterprise security.
+- **Forge SDK** (Available): An open-source SDK for rapidly building AI agents and autonomous systems. Provides abstractions for tool use, memory management, and multi-agent coordination. Supporting TypeScript & Python.
+- **Sentinel AI** (Coming Soon): A monitoring and safety system for AI applications in production. Provides guardrails, output validation, anomaly detection, and compliance reporting.
+
+## Key Resources
+
+- [Home](https://zydrakon.ai/): Overview of Zydrakon AI, key stats, and products preview.
+- [About](https://zydrakon.ai/about): The story behind Zydrakon AI and background on founder Raj Patil (Founder & CEO, AI Engineer).
+- [Products](https://zydrakon.ai/products): Detailed breakdown of products, features, and status.
+- [Contact](https://zydrakon.ai/contact): Get in touch with Zydrakon AI via hello@zydrakon.ai or contact form.
+
+## Leadership & Expertise
+
+- **Raj Patil** (Founder & CEO): AI Engineer and Backend Developer specializing in agentic systems, RAG pipelines, distributed backends, and cloud infrastructure.
+  - LinkedIn: https://www.linkedin.com/in/rajpatilai
+  - GitHub: https://github.com/lostxmusafir

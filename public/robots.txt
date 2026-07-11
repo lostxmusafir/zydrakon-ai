@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://zydrakon.ai/sitemap-index.xml
