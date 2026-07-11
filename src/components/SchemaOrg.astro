@@ -1,0 +1,86 @@
+---
+import { site } from '../data/site';
+
+interface Props {
+  page: string;
+  breadcrumbs?: { name: string; path: string }[];
+}
+
+const { page, breadcrumbs } = Astro.props;
+
+const organization = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: site.name,
+  url: site.url,
+  founder: {
+    '@type': 'Person',
+    name: site.founder.name,
+    jobTitle: site.founder.title,
+    url: site.founder.linkedin,
+    sameAs: [site.founder.linkedin, site.founder.github],
+  },
+  sameAs: [site.founder.linkedin, site.founder.github],
+};
+
+const person = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: site.founder.name,
+  jobTitle: site.founder.title,
+  url: site.founder.linkedin,
+  sameAs: [site.founder.linkedin, site.founder.github],
+  knowsAbout: [
+    'Artificial Intelligence',
+    'Machine Learning',
+    'Backend Development',
+    'Agentic AI',
+    'Software Engineering',
+  ],
+};
+
+const website = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: site.name,
+  url: site.url,
+  description: site.description,
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: {
+      '@type': 'EntryPoint',
+      urlTemplate: `${site.url}/?q={search_term_string}`,
+    },
+    'query-input': 'required name=search_term_string',
+  },
+};
+
+const webpage = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: page === '/' ? site.name : `${site.name} — ${page.slice(1)}`,
+  url: `${site.url}${page}`,
+  isPartOf: {
+    '@type': 'WebSite',
+    url: site.url,
+  },
+};
+---
+
+<script is:inline type="application/ld+json" set:html={JSON.stringify(organization)}></script>
+<script is:inline type="application/ld+json" set:html={JSON.stringify(person)}></script>
+<script is:inline type="application/ld+json" set:html={JSON.stringify(website)}></script>
+<script is:inline type="application/ld+json" set:html={JSON.stringify(webpage)}></script>
+
+{breadcrumbs && (
+  <script is:inline type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: breadcrumbs.map((crumb, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: crumb.name,
+      item: `${site.url}${crumb.path}`,
+    })),
+  })}></script>
+)}

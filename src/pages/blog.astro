@@ -1,0 +1,86 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CTA from '../components/CTA.astro';
+import { Icon } from 'astro-icon/components';
+---
+
+<BaseLayout page="/blog" breadcrumbs={[{ name: 'Home', path: '/' }, { name: 'Blog', path: '/blog' }]}>
+  <section class="relative overflow-hidden pt-20 pb-24">
+    <div class="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-base pointer-events-none" />
+
+    <div class="container relative z-10">
+      <div class="text-center max-w-3xl mx-auto mb-16 animate-fade-in-up">
+        <span class="text-xs font-semibold uppercase tracking-widest text-primary">Publications</span>
+        <h1 class="text-4xl md:text-5xl font-bold mt-3 mb-4 text-text-primary">
+          Zydrakon Engineering Blog
+        </h1>
+        <p class="text-text-secondary leading-relaxed">
+          Deep dives into AI engineering, backend systems, agentic architectures, and open-source development from the team building Zydrakon AI.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8 mb-16">
+        {[
+          {
+            title: 'Building Autonomous Agents: Memory Systems & Vector Stores',
+            date: 'July 8, 2026',
+            readTime: '6 min read',
+            author: 'Raj Patil',
+            desc: 'An in-depth look at how agents retrieve context, store short-term and long-term memory, and interface with vector databases using the Forge SDK framework.',
+            tags: ['AI Agent', 'Vector DB', 'Forge SDK'],
+          },
+          {
+            title: 'Securing Agentic Pipelines: Real-time Guardrails & Tool Safety',
+            date: 'May 14, 2026',
+            readTime: '8 min read',
+            author: 'Raj Patil',
+            desc: 'Why LLM tool usage requires deterministic guardrails. In this article, we explain our safety model and show how to deploy Sentinel AI for real-time validation.',
+            tags: ['AI Safety', 'Guardrails', 'Sentinel AI'],
+          },
+        ].map((post) => (
+          <article class="flex flex-col justify-between p-8 rounded-2xl border border-white/5 bg-surface/50 hover:bg-surface/80 hover:border-white/10 transition-all group">
+            <div>
+              <div class="flex items-center gap-3 text-xs text-text-muted mb-4">
+                <span>{post.date}</span>
+                <span class="h-1 w-1 rounded-full bg-white/20" />
+                <span>{post.readTime}</span>
+              </div>
+              <h3 class="text-2xl font-bold text-text-primary mb-3 group-hover:text-primary transition-colors">
+                {post.title}
+              </h3>
+              <p class="text-sm text-text-secondary leading-relaxed mb-6">
+                {post.desc}
+              </p>
+            </div>
+            <div>
+              <div class="flex flex-wrap gap-2 mb-6">
+                {post.tags.map((tag) => (
+                  <span class="px-2.5 py-1 rounded bg-white/5 border border-white/5 text-text-muted text-xs">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+              <div class="flex items-center justify-between border-t border-white/5 pt-4">
+                <div class="flex items-center gap-2">
+                  <div class="w-8 h-8 rounded-full overflow-hidden border border-primary/30">
+                    <img src="/images/founder.jpg" alt={post.author} class="w-full h-full object-cover" />
+                  </div>
+                  <span class="text-xs font-semibold text-text-primary">{post.author}</span>
+                </div>
+                <a
+                  href="#"
+                  class="inline-flex items-center gap-1 text-xs font-semibold text-primary hover:text-primary-light transition-colors"
+                >
+                  Read Article
+                  <Icon name="lucide:arrow-right" size="14" />
+                </a>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTA />
+</BaseLayout>

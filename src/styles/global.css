@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #3B82F6;
+  --color-primary-dark: #2563EB;
+  --color-primary-light: #60A5FA;
+  --color-secondary: #8B5CF6;
+  --color-accent: #06B6D4;
+  --color-accent-light: #22D3EE;
+  --color-surface: #111827;
+  --color-surface-light: #1F2937;
+  --color-surface-lighter: #374151;
+  --color-base: #0A0A0F;
+  --color-text-primary: #F9FAFB;
+  --color-text-secondary: #D1D5DB;
+  --color-text-muted: #9CA3AF;
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-base);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background-color: rgba(59, 130, 246, 0.3);
+}
+
+@utility container {
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(1.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@utility animate-fade-in-up {
+  animation: fade-in-up 0.8s ease-out both;
+}
+
+@keyframes glow {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+@utility animate-glow {
+  animation: glow 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-0.5rem); }
+}
+
+@utility animate-float {
+  animation: float 6s ease-in-out infinite;
+}

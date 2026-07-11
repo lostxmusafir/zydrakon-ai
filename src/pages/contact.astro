@@ -1,0 +1,89 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactForm from '../components/ContactForm.astro';
+import CTA from '../components/CTA.astro';
+import { site } from '../data/site';
+import { Icon } from 'astro-icon/components';
+---
+
+<BaseLayout page="/contact" breadcrumbs={[{ name: 'Home', path: '/' }, { name: 'Contact', path: '/contact' }]}>
+  <section class="relative overflow-hidden pt-20 pb-24">
+    <div class="absolute inset-0 bg-gradient-to-b from-accent/5 via-transparent to-base pointer-events-none" />
+
+    <div class="container relative z-10">
+      <div class="grid md:grid-cols-2 gap-16">
+        <div>
+          <span class="text-xs font-semibold uppercase tracking-widest text-accent">Contact</span>
+          <h1 class="text-4xl md:text-5xl font-bold mt-3 mb-4 text-text-primary">
+            Get in Touch
+          </h1>
+          <p class="text-text-secondary leading-relaxed mb-10">
+            Have a question, project idea, or just want to connect? Reach out — we'd love to hear from you.
+          </p>
+
+          <div class="space-y-6">
+            <div class="flex items-start gap-4">
+              <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-accent/10 text-accent">
+                <Icon name="lucide:mail" size="20" />
+              </div>
+              <div>
+                <h3 class="font-semibold text-text-primary text-sm">Email</h3>
+                <a href={`mailto:${site.contact.email}`} class="text-text-muted hover:text-primary transition-colors text-sm">
+                  {site.contact.email}
+                </a>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                <Icon name="lucide:linkedin" size="20" />
+              </div>
+              <div>
+                <h3 class="font-semibold text-text-primary text-sm">LinkedIn</h3>
+                <a
+                  href={site.social.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-text-muted hover:text-primary transition-colors text-sm"
+                >
+                  {site.founder.name}
+                </a>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-secondary/10 text-secondary">
+                <Icon name="lucide:github" size="20" />
+              </div>
+              <div>
+                <h3 class="font-semibold text-text-primary text-sm">GitHub</h3>
+                <a
+                  href={site.social.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-text-muted hover:text-primary transition-colors text-sm"
+                >
+                  {site.social.github.replace('https://', '')}
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-10 p-6 rounded-xl bg-surface/30 border border-white/5">
+            <p class="text-sm text-text-muted">
+              <span class="font-semibold text-text-primary">{site.name}</span> was founded by{' '}
+              <a href="/about" class="text-primary hover:text-primary-light transition-colors">
+                {site.founder.name}
+              </a>
+              . For partnership inquiries, speaking engagements, or collaboration opportunities — let's talk.
+            </p>
+          </div>
+        </div>
+
+        <ContactForm />
+      </div>
+    </div>
+  </section>
+
+  <CTA />
+</BaseLayout>

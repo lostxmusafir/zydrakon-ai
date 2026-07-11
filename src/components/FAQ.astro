@@ -1,0 +1,37 @@
+---
+import { faqs } from '../data/products';
+
+export interface Props {
+  title?: string;
+}
+
+const { title = 'Frequently Asked Questions' } = Astro.props;
+---
+
+<section class="py-24">
+  <div class="container max-w-3xl mx-auto">
+    <h2 class="text-3xl md:text-4xl font-bold text-text-primary text-center mb-12">{title}</h2>
+
+    <div class="space-y-3">
+      {faqs.map((faq, i) => (
+        <details class="group rounded-xl border border-white/5 bg-surface/30 overflow-hidden">
+          <summary class="flex items-center justify-between p-5 cursor-pointer text-text-primary font-medium text-sm hover:bg-white/5 transition-colors">
+            {faq.question}
+            <svg
+              class="w-4 h-4 text-text-muted shrink-0 transition-transform group-open:rotate-180"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M6 9l6 6 6-6" />
+            </svg>
+          </summary>
+          <div class="px-5 pb-5 text-sm text-text-secondary leading-relaxed">
+            {faq.answer}
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

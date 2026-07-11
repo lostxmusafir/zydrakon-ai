@@ -1,0 +1,50 @@
+---
+import type { Product } from '../data/products';
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  product: Product;
+}
+
+const { product } = Astro.props;
+
+const statusColors: Record<string, string> = {
+  available: 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20',
+  beta: 'bg-amber-500/10 text-amber-400 border-amber-500/20',
+  'coming-soon': 'bg-blue-500/10 text-blue-400 border-blue-500/20',
+};
+
+const statusLabels: Record<string, string> = {
+  available: 'Available',
+  beta: 'Beta',
+  'coming-soon': 'Coming Soon',
+};
+---
+
+<div class="group relative rounded-2xl border border-white/5 bg-surface/50 p-8 hover:bg-surface/80 hover:border-white/10 transition-all">
+  <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+
+  <div class="relative z-10">
+    <div class="flex items-start justify-between mb-6">
+      <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
+        <Icon name={`lucide:${product.icon}`} size="24" />
+      </div>
+      <span class={`px-3 py-1 rounded-full text-xs font-medium border ${statusColors[product.status]}`}>
+        {statusLabels[product.status]}
+      </span>
+    </div>
+
+    <h3 class="text-xl font-bold text-text-primary mb-1">{product.title}</h3>
+    <p class="text-sm text-accent font-medium mb-4">{product.tagline}</p>
+    <p class="text-sm text-text-muted leading-relaxed mb-6">{product.description}</p>
+
+    <ul class="space-y-2">
+      {product.features.map((feature) => (
+        <li class="flex items-start gap-2 text-sm text-text-secondary">
+          <Icon name="lucide:check-circle" size="16" class="mt-0.5 shrink-0 text-primary" />
+          <span>{feature}</span>
+        </li>
+      ))}
+    </ul>
+  </div>
+</div>
