@@ -25,6 +25,8 @@ export const site = {
     { label: 'Home', href: '/' },
     { label: 'About', href: '/about' },
     { label: 'Products', href: '/products' },
+    { label: 'Research', href: '/research' },
+    { label: 'Blog', href: '/blog' },
     { label: 'Contact', href: '/contact' },
   ],
 };
@@ -36,14 +38,29 @@ export const pageMeta: Record<string, { title: string; description: string }> = 
       'Zydrakon AI is an artificial intelligence company founded by Raj Patil. We build AI products, developer tools, and agentic AI solutions.',
   },
   '/about': {
-    title: 'About — Raj Patil, Founder & CEO of Zydrakon AI',
+    title: 'About Zydrakon AI | AI Company Founded by Raj Patil',
     description:
-      'Learn about Raj Patil, Founder & CEO of Zydrakon AI. AI Engineer, Backend Developer, and Agentic AI Engineer building the future of intelligence.',
+      'Learn about Zydrakon AI, its mission, and its values as an agentic artificial intelligence company founded by Raj Patil.',
+  },
+  '/founder': {
+    title: 'Raj Patil | Founder & CEO | Zydrakon AI',
+    description:
+      'Meet Raj Patil, Founder & CEO of Zydrakon AI. AI Engineer, Backend Developer, and Agentic AI framework architect.',
   },
   '/products': {
-    title: 'AI Products & Developer Tools — Zydrakon AI',
+    title: 'AI Products | Zydrakon AI',
     description:
-      'Explore AI products and solutions from Zydrakon AI, founded by Raj Patil. AI platform, developer tools, and research lab.',
+      'Explore advanced AI products from Zydrakon AI: Nexus AI Platform, Forge SDK, and Sentinel AI.',
+  },
+  '/research': {
+    title: 'AI Research | Zydrakon AI',
+    description:
+      'Explore Zydrakon AI\'s research papers, publications, and breakthroughs in agentic AI and intelligent systems.',
+  },
+  '/blog': {
+    title: 'Engineering Blog | Zydrakon AI',
+    description:
+      'Read technical blogs, articles, and guides on AI engineering, backend systems, and agentic AI from Zydrakon AI.',
   },
   '/contact': {
     title: 'Contact Zydrakon AI — Let\'s Build the Future',
