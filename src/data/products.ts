@@ -11,7 +11,7 @@ export interface Product {
 export const products: Product[] = [
   {
     id: 'nexus-ai',
-    icon: 'cpu',
+    icon: 'Cpu',
     title: 'Nexus AI Platform',
     tagline: 'Enterprise-grade AI orchestration',
     description:
@@ -27,7 +27,7 @@ export const products: Product[] = [
   },
   {
     id: 'forge-sdk',
-    icon: 'hammer',
+    icon: 'Hammer',
     title: 'Forge SDK',
     tagline: 'Build AI agents in minutes',
     description:
@@ -43,7 +43,7 @@ export const products: Product[] = [
   },
   {
     id: 'sentinel',
-    icon: 'shield',
+    icon: 'Shield',
     title: 'Sentinel AI',
     tagline: 'AI safety & monitoring',
     description:

@@ -13,8 +13,11 @@ Zydrakon AI is an artificial intelligence company founded by Raj Patil, speciali
 ## Key Resources
 
 - [Home](https://zydrakon.ai/): Overview of Zydrakon AI, key stats, and products preview.
-- [About](https://zydrakon.ai/about): The story behind Zydrakon AI and background on founder Raj Patil (Founder & CEO, AI Engineer).
+- [About](https://zydrakon.ai/about): The story behind Zydrakon AI, company values, and developer-first principles.
+- [Founder](https://zydrakon.ai/founder): Technical bio, areas of expertise, and founder message from Raj Patil (Founder & CEO).
 - [Products](https://zydrakon.ai/products): Detailed breakdown of products, features, and status.
+- [Research](https://zydrakon.ai/research): Publications and technical reports on safe multi-agent coordination and context latency.
+- [Blog](https://zydrakon.ai/blog): Engineering insights, system design guides, and developer updates.
 - [Contact](https://zydrakon.ai/contact): Get in touch with Zydrakon AI via hello@zydrakon.ai or contact form.
 
 ## Leadership & Expertise
