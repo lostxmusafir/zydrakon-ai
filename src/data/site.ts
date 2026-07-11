@@ -31,7 +31,7 @@ export const site = {
 
 export const pageMeta: Record<string, { title: string; description: string }> = {
   '/': {
-    title: 'Zydrakon AI — Engineer the Future of Intelligence',
+    title: 'Zydrakon AI | Official Website | Founded by Raj Patil',
     description:
       'Zydrakon AI is an artificial intelligence company founded by Raj Patil. We build AI products, developer tools, and agentic AI solutions.',
   },
