@@ -1,0 +1,110 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProductCard from '../components/ProductCard.astro';
+import FAQ from '../components/FAQ.astro';
+import CTA from '../components/CTA.astro';
+import { products } from '../data/products';
+import { site } from '../data/site';
+---
+
+<BaseLayout page="/products" breadcrumbs={[{ name: 'Home', path: '/' }, { name: 'Products', path: '/products' }]}>
+  <script is:inline type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Zydrakon AI Products',
+    numberOfItems: products.length,
+    itemListElement: products.map((product, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      item: {
+        '@type': 'Product',
+        name: product.title,
+        description: product.description,
+        offers: {
+          '@type': 'Offer',
+          priceCurrency: 'USD',
+          availability: product.status === 'available' ? 'https://schema.org/InStock' : product.status === 'beta' ? 'https://schema.org/PreOrder' : 'https://schema.org/OutOfStock',
+          price: '0.00',
+        },
+        brand: {
+          '@type': 'Brand',
+          name: site.name,
+        },
+      },
+    })),
+  })}></script>
+
+  <script is:inline type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'What is Zydrakon AI?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Zydrakon AI is an artificial intelligence company founded by Raj Patil. We specialize in building AI products, developer tools, and agentic AI solutions for enterprises and developers.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Who is the founder of Zydrakon AI?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Zydrakon AI was founded by Raj Patil, an AI Engineer and Backend Developer with expertise in building intelligent systems and agentic AI frameworks.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'What products does Zydrakon AI offer?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Zydrakon AI offers the Nexus AI Platform for enterprise AI orchestration, Forge SDK for building AI agents, and Sentinel AI for AI safety monitoring.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Is Forge SDK open source?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Yes, Forge SDK is open source and available on GitHub. You can contribute, fork, and use it to build AI agents and autonomous systems.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'How can I contact Zydrakon AI?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'You can reach out through the contact form on our website or connect with founder Raj Patil on LinkedIn and GitHub.',
+        },
+      },
+    ],
+  })}></script>
+
+  <section class="relative overflow-hidden pt-20 pb-24">
+    <div class="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-base pointer-events-none" />
+
+    <div class="container relative z-10">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs font-semibold uppercase tracking-widest text-primary">Solutions</span>
+        <h1 class="text-4xl md:text-5xl font-bold mt-3 mb-4 text-text-primary">
+          AI Products Built for Scale
+        </h1>
+        <p class="text-text-secondary leading-relaxed">
+          From developer SDKs to enterprise platforms — every product at {site.name} is engineered with
+          precision, built for performance, and designed for the future of intelligent systems.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        {products.map((product) => (
+          <ProductCard product={product} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <FAQ />
+
+  <CTA />
+</BaseLayout>
